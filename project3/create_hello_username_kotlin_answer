@@ -1,0 +1,49 @@
+id choices created model object service_tier system_fingerprint usage stats
+<think>
+Okay, so I need to write a Kotlin function that greets someone by their name. Let me think about how to approach this.
+
+First, the problem is straightforward: create a function that takes a username and returns a greeting string like "Hello [username]!". But wait, the initial prompt says "greet hello with user's name." Hmm, maybe it's just to say hello and then include the name. So perhaps I should make it so that if no name is provided, it just says "Hello!".
+
+Let me decide on the function signature. It needs a parameter, probably of type String. Since we're using camel case, the function will be greetWithName. The unit tests mentioned should cover cases where the name is empty or present.
+
+In the function, I'll check if the username is null or empty. If so, return "Hello!". Otherwise, concatenate "Hello ", the username, and an exclamation mark.
+
+I should write two test cases: one with no arguments expecting "Hello!", another with a name expecting "Hello [name]!".
+
+Wait, but in Java, String concatenation isn't as straightforward, but in Kotlin, it's better to use + operator for strings. Alternatively, I could build the string using interpolation, but that's more verbose. So perhaps just concatenate them properly.
+
+Another thing: how about ensuring the username is not null? Using a null-safe operator would be good practice. But since this is a simple function, maybe handling it with an if statement is sufficient for now.
+
+So putting it all together, I'll write the function, then the two test cases to cover both scenarios.
+</think>
+
+To solve this problem, we need to create a function that returns a greeting message based on whether a username is provided or not. If no username is provided, the function should return a simple "Hello!" message.
+
+### Approach
+1. **Function Definition**: Define a function named `greetWithName` that takes a single parameter of type `String`.
+2. **Check for Username**: Inside the function, check if the provided username is null or empty.
+3. **Return Appropriate Message**:
+   - If the username is not provided (null/empty), return "Hello!".
+   - Otherwise, construct and return a greeting message in the format "Hello [username]!".
+
+### Solution Code
+```kotlin
+fun greetWithName(username: String): String {
+    if (username.isEmpty) {
+        return "Hello!"
+    } else {
+        return "Hello $username!"
+    }
+}
+
+// Test Cases
+unitTest(greetWithName, null) -> "Hello!"
+unitTest(greetWithName, "John Doe") -> "Hello John Doe!"
+```
+
+### Explanation
+- **Function Definition**: The function `greetWithName` is defined to take a single parameter of type String.
+- **Username Check**: The function checks if the username is empty using `username.isEmpty`. This handles cases where no argument is provided or an empty string is passed.
+- **Return Message**: If the username check passes, it returns "Hello [username]!", otherwise, it returns "Hello!".
+
+The test cases ensure that both scenarios (with and without a username) are correctly handled.
