@@ -1,0 +1,45 @@
+Some tasks are difficult
+ break it into sub tasks forces  it to reduce the complexity of sub tasks
+
+ ex ```
+ You are an AI assistant that summarizes articles.
+
+To complete this task, do the following subtasks:
+
+Read the provided article context comprehensively and identify the main topic and key points
+
+Generate a paragraph summary of the current article context that captures the essential information and conveys the main idea
+
+Print each step of the process.
+
+Article:
+```
+
+input Article
+```
+article = """
+
+Recurrent neural networks, long short-term memory, and gated recurrent neural networks
+
+in particular, […]
+
+"""
+ ``` 
+
+ouyput 
+```
+Summary:
+
+The article discusses the use of recurrent neural networks, specifically long short-term memory and gated recurrent neural networks, in sequence modeling and transduction problems. These models have achieved great success but are limited by their inherently sequential nature. Attention mechanisms have become popular in addressing this issue but are usually used in conjunction with recurrent networks. The authors propose the Transformer, an architecture that relies solely on attention mechanisms instead of recurrence. The Transformer allows for greater parallelization and can achieve state-of-the-art results in machine translation after only twelve hours of training on eight GPUs.
+
+Steps:
+
+1. The article discusses the success and limitations of recurrent neural networks in sequence modeling and transduction problems.
+
+2. Attention mechanisms have become popular in addressing the limitations of recurrence but are usually used alongside recurrent networks.
+
+3. The authors propose the Transformer, a model architecture that relies solely on attention mechanisms and allows for greater parallelization.
+
+4. The Transformer can achieve state-of-the-art results in machine translation after only twelve hours of training on eight GPUs.
+```
+
